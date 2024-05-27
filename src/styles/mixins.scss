@@ -1,0 +1,49 @@
+// Media query mixin for screens smaller than the given size
+@mixin media-breakpoint-down($size) {
+  @media (max-width: $size) {
+    @content;
+  }
+}
+
+// Media query mixin for screens larger than the given size
+@mixin media-breakpoint-up($size) {
+  @media (min-width: $size) {
+    @content;
+  }
+}
+
+// Media query mixin for screens between two sizes
+@mixin media-breakpoint-between($min-size, $max-size) {
+  @media (min-width: $min-size) and (max-width: $max-size) {
+    @content;
+  }
+}
+
+// Example usage:
+// @include media-query-sm {
+//   // CSS rules for small devices
+// }
+// @include media-query-md {
+//   // CSS rules for medium devices
+// }
+// @include media-query-lg {
+//   // CSS rules for large devices
+// }
+// @include media-query-xl {
+//   // CSS rules for extra large devices
+// }
+
+
+// Mixin for typography styles
+@mixin typography($size, $weight, $height, $family, $color) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $height;
+  font-family: $family;
+  color: $color;
+}
+
+// Example usage:
+// .my-text {
+//   @include typography(16px, 500, 1.5, 'Arial, sans-serif', #333);
+// }

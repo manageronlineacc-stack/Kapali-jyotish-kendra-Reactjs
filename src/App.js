@@ -1,24 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+// import global styling
+import './styles/global.scss';
+
+// import react components
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Layout from './Pages/Layout';
+import Home from './Pages/Home';
+import AboutUs from './Pages/AboutUs';
+import Services from './Pages/Services';
+import ServicePage from './Pages/ServicePage';
+import Blog from './Pages/Blog';
+import BlogPage from './Pages/BlogPage';
+import ContactUs from './Pages/ContactUs';
+import Appointment from './Pages/Appointment';
+import PrivacyPolicy from './Pages/PrivacyPolicy';
+import Disclaimer from './Pages/Disclaimer';
+import TermsCondition from './Pages/TermsCondition';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path='about-us' element={<AboutUs />} />
+          <Route path='services' element={<Services />} />
+          <Route path='service/:slug' element={<ServicePage />} />
+          <Route path='blogs' element={<Blog />} />
+          <Route path='blog/:slug' element={<BlogPage />} />
+          <Route path='contact-us' element={<ContactUs />} />
+          <Route path='book-appointment' element={<Appointment />} />
+          <Route path='terms-and-condition' element={<TermsCondition />} />
+          <Route path='disclaimer' element={<Disclaimer />} />
+          <Route path='privacy-policy' element={<PrivacyPolicy />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -1,0 +1,54 @@
+@import '../../styles/variable.scss';
+@import '../../styles/mixins.scss';
+
+.blog-detail-container {
+  padding: 60px 0;
+  position: relative;
+  @include media-breakpoint-down($lg) {
+    padding: 40px 0;
+  }
+  .detail-header {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    position: relative;
+    .action-icons {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      gap: 15px;
+      margin-bottom: 10px;
+      font-size: 14px;
+      flex-wrap: wrap;
+      @include media-breakpoint-down($lg) {
+        margin-bottom: 20px;
+      }
+      i {
+        color: $color-secondary;
+        margin-right: 8px;
+      }
+    }
+    .detail-title {
+      @include typography(32px, 600, 1, $web-font-bold, $color-dark-blue);
+      transition: all 0.75s ease;
+      @include media-breakpoint-down($lg) {
+        font-size: 18px;
+      }
+    }
+    .go-back-cta {
+      position: absolute;
+      top: 0;
+      left: 0;
+      @include typography(14px, 600, 1, $web-font-bold, $color-grey);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      &::before {
+        content: '';
+        content: '\f053';
+        font-family: 'FontAwesome';
+        margin-right: 8px;
+      }
+    }
+  }
+}

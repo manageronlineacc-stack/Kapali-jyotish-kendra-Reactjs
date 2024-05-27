@@ -1,0 +1,42 @@
+@import '../../styles/variable.scss';
+@import '../../styles/mixins.scss';
+
+.breadcrumb-wrapper {
+  position: relative;
+  padding: 60px 40px;
+  margin: 40px 0 0;
+  background: url(../../assets/images/breadcrumb-bg.jpg);
+  @include media-breakpoint-down($lg) {
+    padding: 35px 20px;
+    margin-top: 10px;
+  }
+  h3 {
+    @include typography(40px, 800, 56px, $web-font, $color-white);
+    margin: 0 0 8px;
+    @include media-breakpoint-down($md) {
+      font-size: 24px;
+      line-height: 32px;
+      margin: 0;
+    }
+  }
+  ul {
+    display: flex;
+    align-items: center;
+    li {
+      @include typography(16px, 500, 26px, $web-font, $color-white);
+      @include media-breakpoint-down($md) {
+        font-size: 14px;
+        line-height: 16px;
+      }
+      a {
+        color: $color-white;
+      }
+      .separator {
+        margin: 0 12px;
+        font-size: 12px;
+        position: relative;
+        display: inline-block;
+      }
+    }
+  }
+}

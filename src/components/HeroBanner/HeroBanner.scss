@@ -1,0 +1,50 @@
+@import '../../styles/variable.scss';
+@import '../../styles/mixins.scss';
+
+.hero-banner-wrapper {
+  display: flex;
+  align-items: center;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+  margin: 40px 0;
+  @include media-breakpoint-down($lg) {
+    height: auto;
+    margin: 0 0 40px;
+  }
+  &::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 50%;
+    background: url('../../assets/images/banner-img.jpeg');
+    background-size: cover;
+    background-position: 80% 0;
+    border-radius: 40px 0 0 40px;
+    overflow: hidden;
+    @include media-breakpoint-down($lg) {
+      width: 100%;
+      height: 280px;
+      border-radius: 0 0 30px 30px;
+    }
+  }
+  .banner-content {
+    max-width: 50%;
+    padding-right: 30px;
+    @include media-breakpoint-down($lg) {
+      max-width: 100%;
+      padding-right: 0;
+      padding-top: 300px;
+    }
+    h3 {
+      @include typography(32px, 600, 40px, $web-font-bold, $color-black);
+      margin: 0 0 30px;
+      @include media-breakpoint-down($lg) {
+        font-size: 21px;
+        line-height: 26px;
+      }
+    }
+  }
+}

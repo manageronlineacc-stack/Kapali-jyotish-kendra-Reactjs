@@ -1,0 +1,53 @@
+@import '../../styles/variable.scss';
+@import '../../styles/mixins.scss';
+
+.service-detail-wrapper {
+  padding: 60px 0;
+  position: relative;
+  @include media-breakpoint-down($lg) {
+    padding: 40px 0;
+  }
+  .detail-header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    position: relative;
+    .service-icon {
+      width: 75px;
+      height: 75px;
+      border-radius: 100%;
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      justify-self: center;
+      background: $color-white;
+      overflow: hidden;
+      @include media-breakpoint-down($lg) {
+        width: 50px;
+        height: 50px;
+      }
+      img {
+        width: 70px;
+        height: auto;
+        @include media-breakpoint-down($lg) {
+          width: 45px;
+        }
+      }
+    }
+    @include media-breakpoint-down($lg) {
+      gap: 15px;
+    }
+    .detail-title {
+      @include typography(32px, 600, 1, $web-font-bold, $color-dark-blue);
+      transition: all 0.75s ease;
+      @include media-breakpoint-down($lg) {
+        font-size: 18px;
+      }
+    }
+    .detail-description { 
+      p {
+        @include typography(16px, 500, 26px, $web-font, $color-light-grey);
+      }
+    }
+  }
+}

@@ -1,0 +1,60 @@
+@import '../../styles/variable.scss';
+@import '../../styles/mixins.scss';
+
+.imagecontent-wrapper {
+  position: relative;
+  padding: 60px 0;
+  margin: 40px 0;
+  @include media-breakpoint-down($lg) {
+    padding: 0 0 30px;
+    margin: 30px 0 0;
+  }
+  &::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 40%;
+    background: url('../../assets/images/img-content.jpg');
+    background-size: cover;
+    background-position: 80% 0;
+    border-radius: 0 40px 40px 0;
+    overflow: hidden;
+    @include media-breakpoint-down($lg) {
+      display: none;
+    }
+  }
+  .content-wrapper {
+    width: 60%;
+    margin-left: auto;
+    padding-left: 60px;
+    @include media-breakpoint-down($lg) {
+      width: 100%;
+      padding: 0;
+    }
+    .content-label {
+      display: block;
+      @include typography(16px, 800, 26px, $web-font-bold, $color-primary);
+      margin-bottom: 5px;
+      @include media-breakpoint-down($lg) {
+        font-size: 14px;
+      }
+    }
+    h3 {
+      @include typography(32px, 600, 40px, $web-font-bold, $color-black);
+      margin: 0 0 30px;
+      @include media-breakpoint-down($lg) {
+        font-size: 26px;
+        line-height: 24px;
+      }
+    }
+    p {
+      @include typography(16px, 500, 26px, $web-font, $color-grey);
+      margin-bottom: 10px;
+    }
+  }
+  .cta-wrapper {
+    margin-top: 30px;
+  }
+}

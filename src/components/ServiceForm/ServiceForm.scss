@@ -1,0 +1,111 @@
+@import '../../styles/variable.scss';
+@import '../../styles/mixins.scss';
+
+.appointment-form-wrapper, .success-message {
+  padding: 60px 0;
+  @include media-breakpoint-down($lg) {
+    padding: 40px 0;
+  }
+  .form-header {
+    h3 {
+      @include typography(32px, 600, 40px, $web-font-bold, $color-black);
+      margin: 0 0 30px;
+    }
+  }
+  .two-column {
+    align-items: start;
+  }
+  .img-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 30px;
+    min-height: 450px;
+    background: url(../../assets/images/servicebg.jpeg) no-repeat;
+    background-size: 100% 100%;
+    border-radius: 12px;
+    color: $color-white;
+    position: sticky;
+    top: 12px;
+  }
+  .google-service-form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 30px;
+    .form-element {
+      &.form-select-service, &.form-name, &.form-message {
+        width: 100%;
+      }
+      &.form-gender, &.form-dob, &.form-tob, &.form-pob, &.form-email, &.form-phone {
+        width: calc(50% - 15px);
+      }
+      .form-label {
+        @include typography(16px, 600, 20px, $web-font-medium, $color-primary);
+        margin-bottom: 12px;
+        display: block;
+      }
+      .form-input {
+        width: 100%;
+        padding: 15px 10px;
+        @include typography(16px, 500, 20px, $web-font, $color-black);
+        outline: none;
+        box-shadow: none;
+        border: none;
+        border-radius: 8px;
+        box-shadow: 0px 0px 8px rgba($color: $color-black, $alpha: 0.2);
+        &.form-message {
+          resize: none;
+          min-height: 250px;
+        }
+      }
+      select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        position: relative;
+        &::before {
+          position: absolute;
+          content: '';
+          width: 15px;
+          height: 15px;
+          top: 50%;
+          right: 12px;
+          transform: translateY(-50%)
+        }
+      }
+    }
+  }
+
+}
+
+
+.success-message {
+  .content {
+    h3 {
+      @include typography(32px, 600, 40px, $web-font-bold, $color-black);
+      margin: 0 0 30px;
+    }
+    .btn-resubmit {
+      position: relative;
+      padding: 12px 0px 12px 25px;
+      border: 0;
+      outline: none;
+      box-shadow: none;
+      background: transparent;
+      @include typography(14px, 600, 20px, $web-font-bold, $color-primary);
+      cursor: pointer;
+      &::before {
+        position: absolute;
+        content: '\f01e';
+        font-family: "FontAwesome";
+        width: 20px;
+        height: 20px;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        color: $color-primary;
+      }
+    } 
+  }
+}

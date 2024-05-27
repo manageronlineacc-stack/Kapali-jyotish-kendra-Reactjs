@@ -1,0 +1,117 @@
+@import '../../styles/variable.scss';
+@import '../../styles/mixins.scss';
+
+.services-grid-wrapper {
+  padding: 60px 0;
+  @include media-breakpoint-down($lg) {
+    padding: 40px 0;
+  }
+  .title-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0 60px;
+    @include media-breakpoint-down($lg) {
+      margin-bottom: 30px;
+    }
+    h3 {
+      @include typography(32px, 600, 40px, $web-font-bold, $color-black);
+      margin: 0;
+      @include media-breakpoint-down($lg) {
+        font-size: 21px;
+        line-height: 24px;
+      }
+    }
+    .search-input-field {
+      position: relative;
+      &::before {
+        position: absolute;
+        content: '\f002';
+        font-family: 'FontAwesome';
+        color: $color-dark-blue;
+        width: 20px;
+        height: 20px;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .search-input {
+        padding: 12px 15px 12px 25px;
+        @include typography(18px, 500, 20px, $web-font, $color-black);
+        box-shadow: none;
+        outline: none;
+        border-radius: 40px;
+        border: 0;
+        width: 340px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.16);
+        @include media-breakpoint-down($lg) {
+          font-size: 16px;
+          width: 200px;
+        }
+      }
+    }
+  }
+  .service-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 4px;
+    @include media-breakpoint-down($lg) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .service-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 15px;
+      padding: 15px 12px;
+      border-radius: 8px;
+      min-height: 150px;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      transition: all 0.75s ease;
+      cursor: pointer;
+      .service-icon {
+        width: 75px;
+        height: 75px;
+        border-radius: 100%;
+        padding: 8px 10px;
+        display: flex;
+        align-items: center;
+        justify-self: center;
+        background: $color-white;
+        overflow: hidden;
+        @include media-breakpoint-down($lg) {
+          width: 65px
+        }
+        img {
+          width: 70px;
+          height: auto;
+          @include media-breakpoint-down($lg) {
+            width: 60px
+          }
+        }
+      }
+      .service-title {
+        @include typography(18px, 600, 1, $web-font, $color-dark-blue);
+        text-align: center;
+        transition: all 0.75s ease;
+        @include media-breakpoint-down($lg) {
+          font-size: 14px;
+          text-align: center;
+        }
+      }
+      &:hover {
+        background: $color-primary;
+        color: $color-white;
+        .service-title {
+          color: $color-white;
+        }
+      }
+    }
+  }
+}

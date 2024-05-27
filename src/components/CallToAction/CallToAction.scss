@@ -1,0 +1,37 @@
+@import '../../styles/variable.scss';
+@import '../../styles/mixins.scss';
+
+.call-to-action-wrapper {
+  padding: 60px 0;
+  @include media-breakpoint-down($lg) {
+    padding: 30px 0;
+  }
+  .content-wrapper {
+    position: relative;
+    padding: 150px 20px; 
+    text-align: center;
+    background: linear-gradient(156deg, rgba(0, 0, 0, 0.1) 20%, rgba(0, 0, 0, 0.1) 80%), url(../../assets/images/CTA-img.jpg) no-repeat fixed;
+    border-radius: 20px;
+    background-size: 100% 100%;
+    background-position: center;
+    @include media-breakpoint-down($lg) {
+      background-size: cover;
+    }
+    .content-label {
+      @include typography(21px, 800, 26px, $web-font-bold, $color-white);
+      margin-bottom: 15px;
+      @include media-breakpoint-down($lg) {
+        font-size: 16px;
+      }
+    }
+    p {
+      @include typography(34px, 800, 40px, $web-font-medium, $color-white);
+      max-width: 850px;
+      margin: 10px auto;
+      @include media-breakpoint-down($lg) {
+        font-size: 21px;
+        line-height: 26px;
+      }
+    }
+  }
+}

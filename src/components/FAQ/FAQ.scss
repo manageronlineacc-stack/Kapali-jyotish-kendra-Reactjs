@@ -1,0 +1,87 @@
+@import '../../styles/variable.scss';
+@import '../../styles/mixins.scss';
+
+.faq-component-wrapper {
+  padding: 60px 0;
+  background: $color-light-grey;
+  @include media-breakpoint-down($lg) {
+    padding: 40px 0;
+  }
+  .img-wrapper {
+    column-gap: 15px;
+    padding-right: 55px;
+    @include media-breakpoint-down($lg) {
+      display: none;
+    }
+    .img-items {
+      img {
+        border-radius: 5px;
+        width: 100%
+      }
+    }
+  }
+  .faq-content-wrapper {
+    .content-label {
+      @include typography(16px, 800, 26px, $web-font-bold, $color-primary);
+      margin-bottom: 5px;
+      @include media-breakpoint-down($lg) {
+        font-size: 14px;
+      }
+    }
+    h3 {
+      @include typography(32px, 600, 40px, $web-font-bold, $color-black);
+      margin: 0 0 40px;
+      @include media-breakpoint-down($lg) {
+        font-size: 21px;
+        line-height: 24px;
+      }
+    }
+    .faq-accordion-wrapper {
+      .faq-accordion-item {
+        &:last-child {
+          border-bottom: 1px solid $color-light-black;
+        }
+        &:not(.open) {
+          .faq-accordion-header {
+            &::after {
+              content: '\f067';
+            }
+          }
+          .faq-accordion-content {
+            display: none;
+          }
+        }
+        .faq-accordion-header {
+          border: 0 none;
+          background: transparent;
+          border-top: 1px solid $color-light-black;
+          width: 100%;
+          text-align: left;
+          padding: 20px 20px 20px 0;
+          position: relative;
+          cursor: pointer;
+          @include typography(20px, 600, 32px, $web-font-medium, $color-dark-blue);
+          @include media-breakpoint-down($lg) {
+            font-size: 18px;
+            line-height: 24px;
+          }
+          &:after {
+            position: absolute;
+            content: '\f068';
+            font-family: 'Font Awesome 6 Free';
+            font-size: 20px;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: all 0.5s ease;
+            color: $color-dark-blue
+          }
+        }
+        .faq-accordion-content {
+          @include typography(16px, 500, 26px, $web-font, $color-grey);
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}

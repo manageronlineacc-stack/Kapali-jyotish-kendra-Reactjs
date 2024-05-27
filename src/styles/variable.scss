@@ -1,0 +1,28 @@
+// Colors
+$color-primary: #016f01;
+$color-secondary: #ed3337;
+$color-black: #212529;
+$color-white: #fff;
+$color-light-grey: #F5F5F5;
+$color-dark-blue: #231F40;
+$color-light-blue: #e0e9fa;
+$color-grey: #777;
+$color-dark-grey: #aab0bc;
+$color-light-black: #d7d7d7;
+$color-orange: #FFA41B;
+$color-light-red: rgba(251, 124, 86, 0.6);
+
+// Font family
+$web-font: 'Optima';
+$web-font-italic: 'Optima Italic';
+$web-font-medium: 'Optima Medium';
+$web-font-bold: 'Optima Bold';
+$icon-font-free: 'Font Awesome 6 Free';
+$icon-font-brand: 'Font Awesome 6 Brands';
+
+// Define breakpoints for different screen sizes
+$sm: 576px;   // Small devices (phones)
+$md: 769px;   // Medium devices (tablets)
+$lg: 992px;   // Medium lager devices
+$xl: 1200px;  // Larger devices
+$xxl: 1400px; // Extra larger devices

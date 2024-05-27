@@ -1,0 +1,225 @@
+@import './variable.scss';
+@import './mixins.scss';
+
+// Fontawesome import
+@import './fontawesome/css/all.css';
+@import './fontawesome/css/v4-shims.css';
+
+// site font import
+
+@font-face {
+  font-family: 'Optima';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Optima'), url('./fonts/optima-cufonfonts-webfont/OPTIMA.woff') format('woff');
+  }
+  
+
+  @font-face {
+  font-family: 'Optima Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Optima Italic'), url('./fonts/optima-cufonfonts-webfont/Optima_Italic.woff') format('woff');
+  }
+  
+
+  @font-face {
+  font-family: 'Optima Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Optima Medium'), url('./fonts/optima-cufonfonts-webfont/Optima Medium.woff') format('woff');
+  }
+  
+
+  @font-face {
+  font-family: 'Optima Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Optima Bold'), url('./fonts/optima-cufonfonts-webfont/OPTIMA_B.woff') format('woff');
+  }
+
+* {
+	box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: $web-font;
+  margin: 0;
+  &.overflow-hidden {
+    overflow: hidden;
+  }
+  *:focus, *:hover, *:focus-visible, *:focus-within, *:visited, *:target {
+    outline: none !important;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+  }
+  .pd-60 {
+    padding: 60px 0;
+  }
+  .page-layout-wrapper {
+    opacity: 1;
+    transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
+    &.fade-out {
+      opacity: 0;
+    }
+    @include media-breakpoint-down($lg) {
+      padding-bottom: 50px;
+    }
+  }
+  .container {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    margin-left: auto;
+    margin-right: auto;
+    @include media-breakpoint-down($sm) {
+      max-width: 540px; 
+    }
+  
+    @include media-breakpoint-between($sm, $md) {
+      max-width: 720px; 
+    }
+  
+    @include media-breakpoint-up($lg) {
+      max-width: 960px; 
+    }
+  
+    @include media-breakpoint-up($xl) {
+      max-width: 1140px; 
+    }
+    @include media-breakpoint-up($xxl) {
+      max-width: 1320px; 
+    }
+  }
+  .mt-15 {
+    margin-top: 15px;
+  }
+  .mt-35 {
+    margin-top: 35px;
+  }
+  .d-hide {
+    display: none;
+  }
+  .d-show {
+    display: block;
+  }
+  .v-hide {
+    visibility: hidden;
+  }
+  .v-show {
+    visibility: visible;
+  }
+  .two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30px;
+    @include media-breakpoint-down($lg) {
+      grid-template-columns: 1fr;
+      row-gap: 30px;
+    }
+  }
+  .main-wrapper {
+    position: relative;
+  }
+  .btn {
+    position: relative;
+    display: flex;
+    border-radius: 5px;
+    height: 50px;
+    padding: 0 30px;
+    width: fit-content;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    &.btn-primary {
+      @include typography(18px, 600, 50px, $web-font, $color-primary);
+      border: 1px solid $color-primary;
+      a {
+        color: $color-primary;
+      }
+      &:hover {
+        color: $color-white;
+        background: $color-primary
+      }
+    }
+    &.btn-secondary {
+      @include typography(18px, 600, 50px, $web-font, $color-white);
+      background: $color-secondary;
+      border: 1px solid $color-secondary;
+      &:hover {
+        color: $color-secondary;
+        background: transparent;
+      }
+    }
+    &.btn-cta-arrow {
+      border-radius: 40px;
+      background: $color-primary;
+      color: $color-white;
+      padding-right: 80px;
+      position: relative;
+      &::before {
+        position: absolute;
+        content: '\f061';
+        font-family: 'FontAwesome';
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 4px;
+        right: 4px;
+        border-radius: 100%;
+        width: 42px;
+        height: 42px;
+        background: $color-white;
+        color: $color-black;
+        @include media-breakpoint-down($lg) {
+          top: 2px;
+          right: 2px;
+        }
+      }
+    }
+    @include media-breakpoint-down($lg) {
+      font-size: 16px !important;
+      height: 45px;
+      line-height: 45px !important;
+      padding: 0 20px;
+    }
+  }
+  .cta-wrapper {
+    display: flex;
+    gap: 15px;
+  }
+  .policy-wrapper {
+    padding: 60px 0;
+    @include media-breakpoint-down($lg) {
+      padding: 40px 0;
+    }
+    h3 {
+      text-align: center;
+      @include typography(32px, 600, 40px, $web-font-bold, $color-black);
+      margin: 0;
+      @include media-breakpoint-down($lg) {
+        font-size: 21px;
+        line-height: 26px;
+      }
+    }
+    p {
+      @include typography(18px, 500, 20px, $web-font-medium, $color-grey);
+      margin: 0 0 25px;
+      @include media-breakpoint-down($lg) {
+        font-size: 16px;
+        line-height: 26px;
+      }
+    }
+  }
+}

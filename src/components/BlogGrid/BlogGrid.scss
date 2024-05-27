@@ -1,0 +1,106 @@
+@import '../../styles/variable.scss';
+@import '../../styles/mixins.scss';
+
+.blog-grid-wrapper {
+  padding: 60px 0;
+  background: $color-light-grey;
+  @include media-breakpoint-down($lg) {
+    padding: 40px 0;
+  }
+  .blog-grid-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0 30px;
+    h3 {
+      @include typography(32px, 600, 40px, $web-font-bold, $color-black);
+      margin: 0;
+      @include media-breakpoint-down($lg) {
+        font-size: 21px;
+        line-height: 26px;
+      }
+    }
+    .view-cta {
+      @include typography(16px, 500, 1, $web-font, $color-black);
+      text-decoration: underline;
+      cursor: pointer;
+      a {
+        color: $color-black;
+      }
+      @include media-breakpoint-down($lg) {
+        font-size: 14px
+      }
+    }
+  }
+  .blog-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .blog-item {
+    position: relative;
+    height: 100%;
+    @include media-breakpoint-up($lg) {
+      &:hover {
+        .blog-content {
+          background: rgba($color: #000000, $alpha: 0.5);
+          p {
+            display: block;
+          }
+        }
+      }
+    }
+    img {
+      height: 100%;
+      width: 100%;
+    }
+    .blog-content {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: column;
+      background: rgba($color: #000000, $alpha: 0.3);
+      transition: all 0.5s ease;
+      cursor: pointer;
+      h3 {
+        @include typography(18px, 800, 1, $web-font, $color-white);
+        margin: 0 0 10px;
+        text-align: left;
+        min-height: 36px;
+        @include media-breakpoint-down($lg) {
+          font-size: 14px
+        }
+      }
+      .action-icons {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        gap: 15px;
+        margin-bottom: 10px;
+        font-size: 14px;
+        flex-wrap: wrap;
+        color: $color-white;
+        @include media-breakpoint-down($lg) {
+          margin-bottom: 20px;
+        }
+        i {
+          color: $color-white;
+          margin-right: 8px;
+        }
+      }
+      p {
+        display: none;
+        transition: all 0.5s ease;
+        @include typography(14px, 500, 20px, $web-font, $color-white);
+        @include media-breakpoint-down($lg) {
+          font-size: 12px
+        }
+      }
+    }
+  }
+}

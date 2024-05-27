@@ -1,0 +1,132 @@
+@import '../../styles/variable.scss';
+@import '../../styles/mixins.scss';
+
+.testimonial-wrapper {
+  padding: 60px 0;
+  @include media-breakpoint-down($lg) {
+    padding: 40px 0;
+  }
+  .section-header {
+    text-align: center;
+    h3 {
+      @include typography(32px, 600, 40px, $web-font-bold, $color-black);
+      margin: 0 0 15px;
+      @include media-breakpoint-down($lg) {
+        font-size: 21px;
+        line-height: 26px;
+      }
+    }
+    p {
+      @include typography(21px, 500, 21px, $web-font-medium, $color-grey);
+      margin: 0;
+      @include media-breakpoint-down($lg) {
+        font-size: 16px;
+        line-height: 26px;
+      }
+    }
+  }
+  .testimonial-column {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    margin-top: 60px;
+    align-items: center;
+    @include media-breakpoint-down($lg) {
+      grid-template-columns: 1fr;
+      margin-top: 30px;
+    }
+    .testi-img-wrapper {
+      padding-right: 50px;
+      @include media-breakpoint-down($lg) {
+        padding-right: 0;
+      }
+      .two-column {
+        @include media-breakpoint-down($lg) {
+          grid-template-columns: 1fr 1fr;
+          gap: 15px;
+        }
+      }
+      img {
+        border-radius: 20px;
+      }
+      .card {
+        padding: 60px 40px;
+        border-radius: 20px;
+        background-color: $color-light-blue;
+        text-align: center;
+        margin-right: 25%;
+        @include media-breakpoint-down($lg) {
+          padding: 30px 20px;
+          margin-right: 10%;
+        }
+        h3 {
+          @include typography(28px, 600, 32px, $web-font-bold, $color-black);
+          margin: 0 0 15px;
+          @include media-breakpoint-down($lg) {
+            font-size: 18px;
+            line-height: 26px;
+          }
+        }
+        p {
+          @include typography(16px, 500, 21px, $web-font-medium, $color-grey);
+          margin: 0;
+          @include media-breakpoint-down($lg) {
+            font-size: 14px;
+          }
+        }
+      }
+      .testi-img-left {
+        margin-top: 60px;
+      }
+      .testi-img-right {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        @include media-breakpoint-down($lg) {
+          gap: 15px;
+        }
+      }
+    }
+    .testi-item-carousel {
+      position: relative;
+      padding-top: 75px;
+      max-width: 420px;
+      width: 100%;
+      margin: 0 auto;
+      @include media-breakpoint-down($lg) {
+        max-width: 300px;
+      }
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        content: '\f10d';
+        @include typography(90px, 500, 0.7, 'FontAwesome', $color-dark-grey);
+        opacity: 0.5;
+        @include media-breakpoint-down($lg) {
+          font-size: 44px;
+          top: 10%;
+        }
+      }
+      .testimonial-item {
+        text-align: center;
+        p {
+          @include typography(21px, 500, 32px, $web-font-medium, $color-grey);
+          margin: 0 0 25px;
+          @include media-breakpoint-down($lg) {
+            font-size: 18px;
+            line-height: 26px;
+            margin-bottom: 15px;
+          }
+        }
+        h3 {
+          @include typography(18px, 600, 20px, $web-font-bold, $color-black);
+          margin: 0;
+          @include media-breakpoint-down($lg) {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
