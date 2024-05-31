@@ -33,7 +33,7 @@ function PrivacyPolicy() {
 
         <h2>5. Your Choices</h2>
         <ul>
-            <li><strong>Access and Correction:</strong> You may request access to or correction of your personal information by contacting us at [Your Email Address].</li>
+            <li><strong>Access and Correction:</strong> You may request access to or correction of your personal information by contacting us at <a href='mailto:kapalijkendra@gmail.com'>kapalijkendra@gmail.com</a>.</li>
             <li><strong>Opt-Out:</strong> You may opt-out of receiving promotional communications from us by following the unsubscribe instructions in those communications.</li>
         </ul>
 
@@ -44,7 +44,7 @@ function PrivacyPolicy() {
         <p>We may update this Privacy Policy from time to time. Your continued use of the Site following any changes indicates your acceptance of the new Privacy Policy.</p>
 
         <h2>8. Contact Us</h2>
-        <p>If you have any questions about this Privacy Policy, please contact us at [Your Email Address].</p>
+        <p>If you have any questions about this Privacy Policy, please contact us at <a href='mailto:kapalijkendra@gmail.com'>kapalijkendra@gmail.com</a>.</p>
   
         </div>
       </div>

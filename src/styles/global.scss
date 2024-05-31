@@ -145,6 +145,7 @@ body {
     &.btn-primary {
       @include typography(18px, 600, 50px, $web-font, $color-primary);
       border: 1px solid $color-primary;
+      background: transparent;
       a {
         color: $color-primary;
       }
@@ -204,22 +205,38 @@ body {
     @include media-breakpoint-down($lg) {
       padding: 40px 0;
     }
-    h3 {
+    h1 {
       text-align: center;
       @include typography(32px, 600, 40px, $web-font-bold, $color-black);
-      margin: 0;
+      margin: 0 0 20px;
       @include media-breakpoint-down($lg) {
         font-size: 21px;
         line-height: 26px;
       }
     }
+    h2 {
+      @include typography(22px, 600, 25px, $web-font-bold, $color-black);
+      margin: 0 0 15px;
+    }
+    ul {
+      list-style: disc;
+      padding-left: 30px;
+      margin: 0 0 20px;
+      li {
+        @include typography(18px, 600, 25px, $web-font, $color-black);
+      }
+    }
     p {
-      @include typography(18px, 500, 20px, $web-font-medium, $color-grey);
+      @include typography(18px, 500, 20px, $web-font-medium, $color-black);
       margin: 0 0 25px;
       @include media-breakpoint-down($lg) {
         font-size: 16px;
         line-height: 26px;
       }
+    }
+    a {
+      color: $color-black;
+      text-decoration: underline;
     }
   }
 }

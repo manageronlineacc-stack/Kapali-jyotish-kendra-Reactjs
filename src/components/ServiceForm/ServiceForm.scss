@@ -29,17 +29,89 @@
     top: 12px;
   }
   .google-service-form {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    gap: 30px;
-    .form-element {
-      &.form-select-service, &.form-name, &.form-message {
+    .step-navigation-wrapper {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 4px;
+      margin-bottom: 50px;
+      width: 100%;
+      .step-navigation-item {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        background: transparent;
+        border: 0;
+        outline: none;
+        box-shadow: none;
+        padding: 20px 0 0;
+        text-align: left;
+        cursor: pointer;
+        opacity: 0.5;
+        &.active {
+          opacity: 1;
+        }
+        &::before {
+          position: absolute;
+          content: '';
+          width: 100%;
+          height: 4px;
+          top: 0;
+          left: 0;
+          background: rgba(237, 51, 54, 0.7);
+        }
+        span {
+          @include typography(12px, 600, 20px, $web-font-bold, $color-primary);
+        }
+        @include typography(16px, 600, 20px, $web-font-medium, $color-black);
+      }
+    }
+      .btn-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         width: 100%;
+        .step-btn {
+          width: 120px;
+          text-align: center;
+          padding: 12px 15px;
+          border-radius: 8px;
+          outline: none;
+          box-shadow: none;
+          cursor: pointer;
+          @include typography(16px, 600, 18px, $web-font, $color-white);
+          &:disabled {
+            opacity: 0.5;
+            background: $color-grey;
+          }
+          &.btn-continue {
+            margin-left: auto;
+            background: $color-primary;
+            border: 0;
+            padding-right: 30px;
+            position: relative;
+            &::before {
+              position: absolute;
+              content: '\f061';
+              font-family: 'FontAwesome';
+              top: 50%;
+              right: 15px;
+              transform: translateY(-50%);
+            }
+          }
+          &.btn-back {
+            border: 1px solid $color-black;
+            background: transparent;
+            color: $color-black;
+          }
+          &.btn-submit {
+            background: $color-primary;
+            border: 0;
+          }
+        }
       }
-      &.form-gender, &.form-dob, &.form-tob, &.form-pob, &.form-email, &.form-phone {
-        width: calc(50% - 15px);
-      }
+    .form-element {
+      margin-bottom: 30px;
       .form-label {
         @include typography(16px, 600, 20px, $web-font-medium, $color-primary);
         margin-bottom: 12px;
@@ -60,10 +132,11 @@
         }
       }
       select {
-        -webkit-appearance: none;
-        -moz-appearance: none;
         appearance: none;
         position: relative;
+        background: url(../../assets/icons/down-arrow.png) no-repeat right center;
+        background-size: 25px;
+        background-position-x: 98%;
         &::before {
           position: absolute;
           content: '';
@@ -73,6 +146,14 @@
           right: 12px;
           transform: translateY(-50%)
         }
+      }
+      textarea {
+        resize: none;
+        height: 250px;
+      }
+      .error-message {
+        @include typography(16px, 600, 20px, $web-font-medium, $color-secondary);
+        margin: 10px 0;
       }
     }
   }
