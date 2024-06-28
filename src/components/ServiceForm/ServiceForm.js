@@ -5,6 +5,7 @@ function ServiceForm() {
   const [selectedService, setSelectedService] = useState('');
   const [serviceError, setServiceError] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [currentStep, setCurrentStep] = useState(1);
 
   const handleServiceChange = (e) => {
     const value = e.target.value;
@@ -23,6 +24,21 @@ function ServiceForm() {
 
   const handleNewResponse = () => {
     setSubmitted(false);
+    setCurrentStep(1);
+    setSelectedService('');
+    setServiceError('');
+  };
+
+  const nextStep = () => {
+    if (currentStep === 1 && selectedService === '') {
+      setServiceError('Please select a service.');
+      return;
+    }
+    setCurrentStep(currentStep + 1);
+  };
+
+  const previousStep = () => {
+    setCurrentStep(currentStep - 1);
   };
 
   if (submitted) {
@@ -62,105 +78,127 @@ function ServiceForm() {
             target="hidden_iframe"
             className='google-service-form'
           >
-            <div className='form-element form-select-service'>
-              <span className='form-label'>Select Service</span>
-              <select name='entry.1854023724' className={`form-input ${serviceError ? 'error' : ''}`} value={selectedService} onChange={handleServiceChange}>
-                <option value="">Choose your service</option>
-                <option value="Marriage Compatibility">Marriage Compatibility</option>
-                <option value="Marriage Consultation">Marriage Consultation</option>
-                <option value="Career Consultation">Career Consultation</option>
-                <option value="Business Consultation">Business Consultation</option>
-                <option value="Health Consultation">Health Consultation</option>
-                <option value="Education Guidance">Education Guidance</option>
-                <option value="Spiritual Coaching">Spiritual Coaching</option>
-                <option value="Child Birth Analysis">Child Birth Analysis</option>
-                <option value="Love Life Consultation">Love Life Consultation</option>
-                <option value="Past Karma Analysis">Past Karma Analysis</option>
-                <option value="Annual Prediction">Annual Prediction</option>
-              </select>
-              {serviceError && <div className="error-message">{serviceError}</div>}
+            <div className='step-navigation-wrapper'>
+              <div className={`step-navigation-item ${currentStep === 1 ? 'active' : ''}`}>
+                <span>Step 1</span>
+                Select Service
+              </div>
+              <div className={`step-navigation-item ${currentStep === 2 ? 'active' : ''}`}>
+                <span>Step 2</span>
+                Personal Details
+              </div>
             </div>
-            {(selectedService !== '') ? (
-              <>
-              <div className='form-element'>
-                <span className='form-label'>Name</span>
-                <input type='text' name='entry.2107416055' className='form-input' />
-              </div>
-              <div className='form-element'>
-                <span className='form-label'>Gender</span>
-                <select name='entry.1470337189' className='form-input'>
-                  <option value=''>Choose your gender</option>
-                  <option value='Male'>Male</option>
-                  <option value='Female'>Female</option>
-                </select>
-              </div>
-              <div className='form-element'>
-                <span className='form-label'>Date of Birth</span>
-                <input type='date' name='entry.996344890' className='form-input'  />
-              </div>
-              <div className='form-element'>
-                <span className='form-label'>Time of Birth</span>
-                <input type='time' name='entry.653549726' className='form-input' />
-              </div>
-              <div className='form-element'>
-                <span className='form-label'>Place of Birth</span>
-                <input type='text' name='entry.70563675' className='form-input' />
-              </div>
-              </>
-            ) : null }
 
-            {(selectedService === 'Marriage Compatibility' || selectedService === 'Marriage Consultation') ? (
-              <>
+            <div className={`step-form-panel ${currentStep === 1 ? 'show-panel' : ''}`}>
+              <div className='form-element form-select-service'>
+                <span className='form-label'>Select Service</span>
+                <select name='entry.1854023724' className={`form-input ${serviceError ? 'error' : ''}`} value={selectedService} onChange={handleServiceChange}>
+                  <option value="">Choose your service</option>
+                  <option value="Marriage Compatibility">Marriage Compatibility</option>
+                  <option value="Marriage Consultation">Marriage Consultation</option>
+                  <option value="Career Consultation">Career Consultation</option>
+                  <option value="Business Consultation">Business Consultation</option>
+                  <option value="Health Consultation">Health Consultation</option>
+                  <option value="Education Guidance">Education Guidance</option>
+                  <option value="Spiritual Coaching">Spiritual Coaching</option>
+                  <option value="Child Birth Analysis">Child Birth Analysis</option>
+                  <option value="Love Life Consultation">Love Life Consultation</option>
+                  <option value="Past Karma Analysis">Past Karma Analysis</option>
+                  <option value="Annual Prediction">Annual Prediction</option>
+                </select>
+                {serviceError && <div className="error-message">{serviceError}</div>}
+              </div>
+                  <div className='btn-wrapper'>
+                    <button type='button' className='step-btn btn-continue' onClick={nextStep}>Continue</button>
+                  </div>
+
+            </div>
+
+            <div className={`step-form-panel ${currentStep === 2 ? 'show-panel' : ''}`}>
+              {(selectedService !== '') ? (
+                <>
                 <div className='form-element'>
-                  <span className='form-label'>Partner Name</span>
-                  <input type='text' name='entry.613474366' className='form-input' />
+                  <span className='form-label'>Name</span>
+                  <input type='text' name='entry.2107416055' className='form-input' />
                 </div>
                 <div className='form-element'>
-                  <span className='form-label'>Partner Gender</span>
-                  <select name='entry.263003308' className='form-input'>
+                  <span className='form-label'>Gender</span>
+                  <select name='entry.1470337189' className='form-input'>
                     <option value=''>Choose your gender</option>
                     <option value='Male'>Male</option>
                     <option value='Female'>Female</option>
                   </select>
                 </div>
                 <div className='form-element'>
-                  <span className='form-label'>Partner Date of Birth</span>
-                  <input type='date' name='entry.121959930' className='form-input' />
+                  <span className='form-label'>Date of Birth</span>
+                  <input type='date' name='entry.996344890' className='form-input'  />
                 </div>
                 <div className='form-element'>
-                  <span className='form-label'>Partner Time of Birth</span>
-                  <input type='time' name='entry.1281858159' className='form-input' />
+                  <span className='form-label'>Time of Birth</span>
+                  <input type='time' name='entry.653549726' className='form-input' />
                 </div>
                 <div className='form-element'>
-                  <span className='form-label'>Partner Place of Birth</span>
-                  <input type='text' name='entry.2103237319' className='form-input' />
+                  <span className='form-label'>Place of Birth</span>
+                  <input type='text' name='entry.70563675' className='form-input' />
                 </div>
-              </>
-            ): null}
+                </>
+              ) : null }
 
-            {(selectedService !== '') ? (
-              <>
-                <div className='form-element'>
-                  <span className='form-label'>Phone Number</span>
-                  <input type='text' name='entry.857542767' className='form-input' />
-                </div>
-                <div className='form-element'>
-                  <span className='form-label'>Email</span>
-                  <input type='email' name='entry.121664808' className='form-input' />
-                </div>
-                <div className='form-element'>
-                  <span className='form-label'>Message</span>
-                  <textarea name='entry.2146597286' className='form-input'></textarea>
-                </div>
-                <div className='form-element'>
-                <input type="checkbox" id="agreed" name="agreed" value="" required />
-                <label className="agreed-terms">I agree to the T&C's and Privacy Policy.</label>
-                </div>
-                <div className='btn-wrapper'>
-                  <button type='submit' className='step-btn btn-continue'>Book Now</button>
-                </div>
-              </>
-            ) : null }
+              {(selectedService === 'Marriage Compatibility' || selectedService === 'Marriage Consultation') ? (
+                <>
+                  <div className='form-element'>
+                    <span className='form-label'>Partner Name</span>
+                    <input type='text' name='entry.613474366' className='form-input' />
+                  </div>
+                  <div className='form-element'>
+                    <span className='form-label'>Partner Gender</span>
+                    <select name='entry.263003308' className='form-input'>
+                      <option value=''>Choose your gender</option>
+                      <option value='Male'>Male</option>
+                      <option value='Female'>Female</option>
+                    </select>
+                  </div>
+                  <div className='form-element'>
+                    <span className='form-label'>Partner Date of Birth</span>
+                    <input type='date' name='entry.121959930' className='form-input' />
+                  </div>
+                  <div className='form-element'>
+                    <span className='form-label'>Partner Time of Birth</span>
+                    <input type='time' name='entry.1281858159' className='form-input' />
+                  </div>
+                  <div className='form-element'>
+                    <span className='form-label'>Partner Place of Birth</span>
+                    <input type='text' name='entry.2103237319' className='form-input' />
+                  </div>
+                </>
+              ): null}
+
+              {(selectedService !== '') ? (
+                <>
+                  <div className='form-element'>
+                    <span className='form-label'>Phone Number</span>
+                    <input type='text' name='entry.857542767' className='form-input' />
+                  </div>
+                  <div className='form-element'>
+                    <span className='form-label'>Email</span>
+                    <input type='email' name='entry.121664808' className='form-input' />
+                  </div>
+                  <div className='form-element'>
+                    <span className='form-label'>Message</span>
+                    <textarea name='entry.2146597286' className='form-input'></textarea>
+                  </div>
+                  <div className='form-element'>
+                  <input type="checkbox" id="agreed" name="agreed" value="" required />
+                  <label className="agreed-terms">I agree to the T&C's and Privacy Policy.</label>
+                  </div>
+                  <div className='btn-wrapper'>
+                    <button type='button' className='step-btn btn-back' onClick={previousStep}>Back</button>
+                    <button type='submit' className='step-btn btn-continue'>Book Now</button>
+                  </div>
+                </>
+              ) : null }
+            </div>
+
           </form>
         </div>
       </div>

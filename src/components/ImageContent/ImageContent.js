@@ -15,7 +15,7 @@ function ImageContent () {
           <p>Swamy Sivasuji has more than 20 years of experience in astrology. He has performed accurate readings of horoscopes and marriage matchings. Apart from being a Vedic Astrologer, he is also a Saiva Siddhantha Vidya Guru in Thiruvavaduthurai Adheenam, Tamil Nadu.</p>
           <p>His knowledge in Vedic Astrology and Saiva Siddhantha has helped many people to attain a clarity in life and to lead their lives with peace and harmony.</p>
 
-          <p>Sivasuji says, “Superficial acts are not powerful enough to change any dosha or planetary position in the chart, whether negative or positive. So, the prediction of an astrologer should always be Karmic based and not remedies based.”</p>
+          <p>Swamy Sivasuji says, “Superficial acts are not powerful enough to change any dosha or planetary position in the chart, whether negative or positive. So, the prediction of an astrologer should always be Karmic based and not remedies based.”</p>
 
           <p>Let us all cleanse our karmas and get enlightened by God's grace and his guidance!</p>
 

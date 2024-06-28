@@ -27,6 +27,9 @@
     color: $color-white;
     position: sticky;
     top: 12px;
+    @include media-breakpoint-down($lg) {
+      display: none;
+    }
   }
   .google-service-form {
     .step-navigation-wrapper {
@@ -110,6 +113,12 @@
           }
         }
       }
+    .step-form-panel {
+      display: none;
+      &.show-panel {
+        display: block;
+      }
+    }
     .form-element {
       margin-bottom: 30px;
       .form-label {

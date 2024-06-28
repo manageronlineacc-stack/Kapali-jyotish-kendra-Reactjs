@@ -24,7 +24,7 @@ function TermsCondition() {
 
         <h2>3. Payment</h2>
         <ul>
-            <li><strong>Payment Methods:</strong> We do not currently offer online payment gateways. Payments for services are to be made in person at the time of the appointment.</li>
+            <li><strong>Payment Methods:</strong> We do not currently offer online payment gateways. Payments for services need to be made via UPI payment or bank transfer at the time of booking confirmation.</li>
             <li><strong>Pricing:</strong> Prices for our services are subject to change without notice.</li>
         </ul>
 
