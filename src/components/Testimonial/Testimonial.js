@@ -3,14 +3,26 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import testiImgOne from '../../assets/images/testi-img-one.jpg';
 import testiImgTwo from '../../assets/images/testi-img-two.jpg';
-import { TESTIMONIAL_CONT } from '../../util/data';
+import { gql, useQuery } from '@apollo/client';
 import Slider from 'react-slick';
 
-function TestimonialItem ({customerFeedback, customerName}) {
+const GET_POSTS = gql`
+  query MyQuery {
+    testimonials {
+      id
+      clientName
+      description {
+        html
+      }
+    }
+  }
+`;
+
+function TestimonialItem({ clientName, description }) {
   return (
     <div className='testimonial-item'>
-      <p>{ customerFeedback }</p>
-      <h3 className='customer-name'>{ customerName }</h3>
+      <p dangerouslySetInnerHTML={{ __html: description.html }}></p>
+      <h3 className='customer-name'>{clientName}</h3>
     </div>
   );
 }
@@ -26,8 +38,14 @@ function Testimonial() {
     speed: 500,
     autoplaySpeed: 5000,
     slidesToShow: 1,
-    slidesToScroll: 1
+    slidesToScroll: 1,
   };
+
+  const { loading, error, data } = useQuery(GET_POSTS);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error :(</p>;
+
   return (
     <div className='testimonial-wrapper'>
       <div className='container'>
@@ -43,20 +61,24 @@ function Testimonial() {
               </div>
               <div className='testi-img-right'>
                 <div className='card'>
-                  <h3>500+</h3>
-                  <p>Satisfed Customers</p>
+                  <h3>1000+</h3>
+                  <p>Satisfied Customers</p>
                 </div>
                 <div className='testi-img'>
-                <img src={testiImgTwo} className='testi-img' alt='testimonial of kapali jyotish kendra' />
+                  <img src={testiImgTwo} className='testi-img' alt='testimonial of kapali jyotish kendra' />
                 </div>
               </div>
             </div>
           </div>
           <div className='testi-item-carousel'>
             <Slider {...settings}>
-            {TESTIMONIAL_CONT.map((testiItem) => (
-              <TestimonialItem key={testiItem.id} {...testiItem}></TestimonialItem>
-            ) )}
+              {data.testimonials.map((testiItem) => (
+                <TestimonialItem
+                  key={testiItem.id}
+                  clientName={testiItem.clientName}
+                  description={testiItem.description}
+                />
+              ))}
             </Slider>
           </div>
         </div>
