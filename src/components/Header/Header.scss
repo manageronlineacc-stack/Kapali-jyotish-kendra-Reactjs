@@ -149,8 +149,8 @@
       justify-content: center;
       gap: 20px;
       @include media-breakpoint-down($lg) {
-        gap: 5px;
-        margin: 0;
+        gap: 10px;
+        margin: 0 10px;
       }
       .nav-link {
         position: relative;

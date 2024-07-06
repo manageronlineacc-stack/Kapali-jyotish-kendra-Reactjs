@@ -1,9 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.54e0db28.css",
-    "main.js": "/static/js/main.2a079dda.js",
+    "main.css": "/static/css/main.6a0067f3.css",
+    "main.js": "/static/js/main.8754c362.js",
     "static/media/bg-image.jpg": "/static/media/bg-image.13dc951e9b18f0f8647a.jpg",
     "static/media/img-content.jpg": "/static/media/img-content.0db4677cdb1b062efd31.jpg",
+    "static/media/newsletter.png": "/static/media/newsletter.1306814b23d20eee10ea.png",
     "static/media/CTA-img.jpg": "/static/media/CTA-img.f025e8e2fe4b7934c07a.jpg",
     "static/media/about-img.png": "/static/media/about-img.dc7f69339d2023af1019.png",
     "static/media/breadcrumb-bg.jpg": "/static/media/breadcrumb-bg.f4f8a7f908c9e51dcdec.jpg",
@@ -18,6 +19,7 @@
     "static/media/banner-img.jpeg": "/static/media/banner-img.72b2e2dced027cc51739.jpeg",
     "static/media/fa-brands-400.woff2": "/static/media/fa-brands-400.e1a247a5ef41e1975742.woff2",
     "static/media/fa-regular-400.ttf": "/static/media/fa-regular-400.abf801b7acb6705a15ad.ttf",
+    "static/media/no-wifi.png": "/static/media/no-wifi.44b37738703487c04e98.png",
     "static/media/Optima Medium.woff": "/static/media/Optima Medium.41b0183f1591826d5bae.woff",
     "static/media/Optima_Italic.woff": "/static/media/Optima_Italic.37f2d18628cd8090a6bd.woff",
     "static/media/fa-regular-400.woff2": "/static/media/fa-regular-400.639d2000c1ece92eaec8.woff2",
@@ -33,6 +35,7 @@
     "static/media/about.png": "/static/media/about.6a691f4b233b64898c8e.png",
     "static/media/icon-10.png": "/static/media/icon-10.89dfb959039cc31d5cf3.png",
     "static/media/home.png": "/static/media/home.7ea83eef688adf218c48.png",
+    "static/media/submit-arrow.png": "/static/media/submit-arrow.bd2c53036f9517f2eed8.png",
     "static/media/service.png": "/static/media/service.333511c6142452542372.png",
     "static/media/icon-8.webp": "/static/media/icon-8.efcae8f7039b522af966.webp",
     "static/media/fa-v4compatibility.ttf": "/static/media/fa-v4compatibility.f601162ae669f88823a3.ttf",
@@ -43,11 +46,11 @@
     "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/index.html",
-    "main.54e0db28.css.map": "/static/css/main.54e0db28.css.map",
-    "main.2a079dda.js.map": "/static/js/main.2a079dda.js.map"
+    "main.6a0067f3.css.map": "/static/css/main.6a0067f3.css.map",
+    "main.8754c362.js.map": "/static/js/main.8754c362.js.map"
   },
   "entrypoints": [
-    "static/css/main.54e0db28.css",
-    "static/js/main.2a079dda.js"
+    "static/css/main.6a0067f3.css",
+    "static/js/main.8754c362.js"
   ]
 }
