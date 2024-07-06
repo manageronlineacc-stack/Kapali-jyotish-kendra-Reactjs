@@ -24,7 +24,7 @@ export const SOCIAL_MEDIA_LINKS = [
   {
     fbLink: 'https://m.facebook.com/people/Kapali-Jyotish-Kendra/100085260496905/',
     instaLink: 'https://www.instagram.com/kapalijyotishkendra',
-    twitterLink: 'https://www.twitter.com',
+    twitterLink: 'https://x.com/kapalijyotish?s=21',
     youtubeLink: 'https://www.youtube.com/@kapalijyotishkendra6216'
   }
 ]
@@ -33,25 +33,6 @@ export const CONTACT_INFO = [
   {
     mobNumber: '+91 98765 43210',
     emailId: 'info@info.com'
-  }
-]
-
-export const VIDEO_CONTENT = [
-  {
-    videoIframe: <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Y-LRy1wUhyI?si=75p-nfAPpg5vCoZD" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-  }
-]
-
-export const TESTIMONIAL_CONT = [
-  {
-    id: 1,
-    customerFeedback: `I am blessed to get advice from Ayya. I've successfully overcame from my problems by your valuable guidance.`,
-    customerName: `Aridhasan - Chennai`
-  },
-  {
-    id: 2,
-    customerFeedback: `Very Crisp and clear. First he checks our queries and answers them right away. Very importantly the pariharams he asks us to do is easy and economical.`,
-    customerName: `Latha Kannan - Chennai`
   }
 ]
 
