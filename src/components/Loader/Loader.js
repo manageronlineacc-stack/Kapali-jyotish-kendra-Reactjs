@@ -6,7 +6,11 @@ function Loader() {
   const [isOnline, setIsOnline] = useState(navigator.onLine);
 
   useEffect(() => {
-    const handleOnline = () => setIsOnline(true);
+    const handleOnline = () => {
+      setIsOnline(true);
+      window.location.reload(true); // Reload the page with fresh data on reconnection
+    };
+
     const handleOffline = () => setIsOnline(false);
 
     window.addEventListener('online', handleOnline);
@@ -20,15 +24,16 @@ function Loader() {
       }
     }, 3000);
 
+    // Clean up event listeners and timeout on component unmount
     return () => {
-      clearTimeout(loaderTimeout); // Cleanup timeout on component unmount
+      clearTimeout(loaderTimeout);
       window.removeEventListener('online', handleOnline);
       window.removeEventListener('offline', handleOffline);
     };
   }, [isOnline]);
 
   const retryConnection = () => {
-    window.location.reload(); // Force a fresh reload
+    window.location.reload(true); // Force a fresh reload
   };
 
   return (
