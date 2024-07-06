@@ -1,0 +1,164 @@
+@import '../../styles/variable.scss';
+@import '../../styles/mixins.scss';
+
+.subcription-popup-wrapper {
+  visibility: hidden;
+  z-index: -1;
+  opacity: 0;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: all 0.5s ease-in-out;
+
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 99999;
+  }
+
+  .popup-body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 12px;
+    padding: 40px 20px;
+    min-width: 60%;
+    box-shadow: 0 0 10px 0 rgb(75 75 75 / 70%);
+    background: $color-white;
+    @include media-breakpoint-down($lg) {
+      margin: 0 12px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 20px;
+      height: 20px;
+      background-size: contain;
+      cursor: pointer;
+      opacity: 0.5;
+      transition: all 0.5s ease;
+      &:hover {
+        opacity: 1;
+      }
+      &:before, &:after {
+        position: absolute;
+        left: 50%;
+        content: ' ';
+        height: 20px;
+        width: 2px;
+        background-color: #333;
+      }
+      &:before {
+        transform: rotate(45deg);
+      }
+      &:after {
+        transform: rotate(-45deg);
+      }
+    }
+
+    .img-wrapper {
+      width: 80%;
+      min-height: 300px;
+      background: url(../../assets/images/newsletter.png) no-repeat;
+      background-size: cover;
+      background-size: contain;
+      background-position: center;
+      @include media-breakpoint-down($lg) {
+        width: 100%;
+        min-height: 250px;
+      }
+    }
+    .form-wrapper {
+      text-align: center;
+      width: 100%;
+      .success-message {
+        padding: 40px 0;
+        @include typography(24px, 600, 100%, $web-font-bold, $color-primary);
+      }
+      .title {
+        @include typography(32px, 600, 40px, $web-font-bold, $color-black);
+        margin-bottom: 10px;
+      }
+  
+      p {
+        @include typography(18px, 500, 20px, $web-font-medium, $color-grey);
+        margin-bottom: 20px;
+      }
+  
+      .form-group {
+        position: relative;
+        width: 80%;
+        padding-bottom: 30px;
+        margin: 0 auto;
+        @include media-breakpoint-down($lg) {
+          width: 100%;
+        }
+        &.error {
+          .form-input {
+            box-shadow: 0 0 5px 0 rgba(255, 0, 0, 0.7);
+          }
+          .error-message {
+            position: absolute;
+            bottom: 0;
+            left: 10px;
+            @include typography(14px, 600, 14px, $web-font-medium, $color-secondary);
+          }
+        }
+        .form-input {
+          width: 100%;
+          height: 55px;
+          border-radius: 40px;
+          border: 0;
+          outline: 0;
+          background: $color-light-green;
+          box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+          padding: 10px 50px 10px 22px;
+          @include typography(18px, 500, 60px, $web-font-medium, $color-black);
+          &::placeholder  {
+            color: $color-black;
+          }
+        }
+        .form-submit {
+          position: absolute;
+          top: 5px;
+          right: 5px;
+          width: 45px;
+          height: 45px;
+          font-size: 0;
+          border: 0;
+          outline: none;
+          background: $color-primary;
+          border-radius: 100%;
+          cursor: pointer;
+          &::before {
+            position: absolute;
+            content: '';
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            background: url(../../assets/icons/submit-arrow.png) no-repeat;
+            background-size: 25px 25px;
+            background-position: center center;
+            filter: invert(1);
+          }
+        }
+      }
+    }
+
+  }
+
+
+}

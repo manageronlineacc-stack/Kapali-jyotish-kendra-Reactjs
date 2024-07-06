@@ -1,11 +1,20 @@
 import './ServiceForm.scss';
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
 function ServiceForm() {
   const [selectedService, setSelectedService] = useState('');
   const [serviceError, setServiceError] = useState('');
+  const [name, setName] = useState('');
+  const [nameError, setNameError] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [phoneNumberError, setPhoneNumberError] = useState('');
+  const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [message, setMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
+  const [agreed, setAgreed] = useState(false);
 
   const handleServiceChange = (e) => {
     const value = e.target.value;
@@ -18,6 +27,47 @@ function ServiceForm() {
     }
   };
 
+  const handleNameChange = (e) => {
+    const value = e.target.value;
+    setName(value);
+    
+    const namePattern = /^[A-Za-z\s]+$/;
+    if (!namePattern.test(value)) {
+      setNameError('Please enter a valid name.');
+    } else {
+      setNameError('');
+    }
+  };
+
+  const handlePhoneNumberChange = (e) => {
+    const value = e.target.value;
+    setPhoneNumber(value);
+
+    const phonePattern = /^\d{10}$/;
+    if (!phonePattern.test(value)) {
+      setPhoneNumberError('Please enter a valid phone number.');
+    } else {
+      setPhoneNumberError('');
+    }
+  };
+
+  const handleEmailChange = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    if (!emailPattern.test(value)) {
+      setEmailError('Please enter a valid email.');
+    } else {
+      setEmailError('');
+    }
+  };
+
+  const handleMessageChange = (e) => {
+    const value = e.target.value;
+    setMessage(value);
+  };
+
   const handleSubmit = () => {
     setSubmitted(true);
   };
@@ -27,6 +77,14 @@ function ServiceForm() {
     setCurrentStep(1);
     setSelectedService('');
     setServiceError('');
+    setName('');
+    setNameError('');
+    setPhoneNumber('');
+    setPhoneNumberError('');
+    setEmail('');
+    setEmailError('');
+    setMessage('');
+    setAgreed(false);
   };
 
   const nextStep = () => {
@@ -39,6 +97,17 @@ function ServiceForm() {
 
   const previousStep = () => {
     setCurrentStep(currentStep - 1);
+  };
+
+  const isStep2Valid = () => {
+    return (
+      name !== '' &&
+      nameError === '' &&
+      phoneNumber !== '' &&
+      phoneNumberError === '' &&
+      email !== '' &&
+      emailError === ''
+    );
   };
 
   if (submitted) {
@@ -87,6 +156,10 @@ function ServiceForm() {
                 <span>Step 2</span>
                 Personal Details
               </div>
+              <div className={`step-navigation-item ${currentStep === 3 ? 'active' : ''}`}>
+                <span>Step 3</span>
+                Review and Submit
+              </div>
             </div>
 
             <div className={`step-form-panel ${currentStep === 1 ? 'show-panel' : ''}`}>
@@ -108,43 +181,38 @@ function ServiceForm() {
                 </select>
                 {serviceError && <div className="error-message">{serviceError}</div>}
               </div>
-                  <div className='btn-wrapper'>
-                    <button type='button' className='step-btn btn-continue' onClick={nextStep}>Continue</button>
-                  </div>
-
+              <div className='btn-wrapper'>
+                <button type='button' className='step-btn btn-continue' onClick={nextStep} disabled={selectedService === ''}>Continue</button>
+              </div>
             </div>
 
             <div className={`step-form-panel ${currentStep === 2 ? 'show-panel' : ''}`}>
-              {(selectedService !== '') ? (
-                <>
-                <div className='form-element'>
-                  <span className='form-label'>Name</span>
-                  <input type='text' name='entry.2107416055' className='form-input' />
-                </div>
-                <div className='form-element'>
-                  <span className='form-label'>Gender</span>
-                  <select name='entry.1470337189' className='form-input'>
-                    <option value=''>Choose your gender</option>
-                    <option value='Male'>Male</option>
-                    <option value='Female'>Female</option>
-                  </select>
-                </div>
-                <div className='form-element'>
-                  <span className='form-label'>Date of Birth</span>
-                  <input type='date' name='entry.996344890' className='form-input'  />
-                </div>
-                <div className='form-element'>
-                  <span className='form-label'>Time of Birth</span>
-                  <input type='time' name='entry.653549726' className='form-input' />
-                </div>
-                <div className='form-element'>
-                  <span className='form-label'>Place of Birth</span>
-                  <input type='text' name='entry.70563675' className='form-input' />
-                </div>
-                </>
-              ) : null }
-
-              {(selectedService === 'Marriage Compatibility' || selectedService === 'Marriage Consultation') ? (
+              <div className='form-element'>
+                <span className='form-label'>Name</span>
+                <input type='text' name='entry.2107416055' className={`form-input ${nameError ? 'error' : ''}`} value={name} onChange={handleNameChange} />
+                {nameError && <div className="error-message">{nameError}</div>}
+              </div>
+              <div className='form-element'>
+                <span className='form-label'>Gender</span>
+                <select name='entry.1470337189' className='form-input'>
+                  <option value=''>Choose your gender</option>
+                  <option value='Male'>Male</option>
+                  <option value='Female'>Female</option>
+                </select>
+              </div>
+              <div className='form-element'>
+                <span className='form-label'>Date of Birth</span>
+                <input type='date' name='entry.996344890' className='form-input'  />
+              </div>
+              <div className='form-element'>
+                <span className='form-label'>Time of Birth</span>
+                <input type='time' name='entry.653549726' className='form-input' />
+              </div>
+              <div className='form-element'>
+                <span className='form-label'>Place of Birth</span>
+                <input type='text' name='entry.70563675' className='form-input' />
+              </div>
+              {(selectedService === 'Marriage Compatibility' || selectedService === 'Marriage Consultation') && (
                 <>
                   <div className='form-element'>
                     <span className='form-label'>Partner Name</span>
@@ -171,32 +239,56 @@ function ServiceForm() {
                     <input type='text' name='entry.2103237319' className='form-input' />
                   </div>
                 </>
-              ): null}
+              )}
+              <div className='form-element'>
+                <span className='form-label'>Phone Number</span>
+                <input type='text' name='entry.857542767' className={`form-input ${phoneNumberError ? 'error' : ''}`} value={phoneNumber} onChange={handlePhoneNumberChange} />
+                {phoneNumberError && <div className="error-message">{phoneNumberError}</div>}
+              </div>
+              <div className='form-element'>
+                <span className='form-label'>Email</span>
+                <input type='email' name='entry.121664808' className={`form-input ${emailError ? 'error' : ''}`} value={email} onChange={handleEmailChange} />
+                {emailError && <div className="error-message">{emailError}</div>}
+              </div>
+              <div className='form-element'>
+                <span className='form-label'>Message</span>
+                <textarea name='entry.2146597286' className='form-input' value={message} onChange={handleMessageChange}></textarea>
+              </div>
+              <div className='btn-wrapper'>
+                <button type='button' className='step-btn btn-back' onClick={previousStep}>Back</button>
+                <button type='button' className='step-btn btn-continue' onClick={nextStep} disabled={!isStep2Valid()}>Continue</button>
+              </div>
+            </div>
 
-              {(selectedService !== '') ? (
-                <>
-                  <div className='form-element'>
-                    <span className='form-label'>Phone Number</span>
-                    <input type='text' name='entry.857542767' className='form-input' />
-                  </div>
-                  <div className='form-element'>
-                    <span className='form-label'>Email</span>
-                    <input type='email' name='entry.121664808' className='form-input' />
-                  </div>
-                  <div className='form-element'>
-                    <span className='form-label'>Message</span>
-                    <textarea name='entry.2146597286' className='form-input'></textarea>
-                  </div>
-                  <div className='form-element'>
-                  <input type="checkbox" id="agreed" name="agreed" value="" required />
-                  <label className="agreed-terms">I agree to the T&C's and Privacy Policy.</label>
-                  </div>
-                  <div className='btn-wrapper'>
-                    <button type='button' className='step-btn btn-back' onClick={previousStep}>Back</button>
-                    <button type='submit' className='step-btn btn-continue'>Book Now</button>
-                  </div>
-                </>
-              ) : null }
+            <div className={`step-form-panel ${currentStep === 3 ? 'show-panel' : ''}`}>
+              <div className='form-element'>
+                <span className='form-label'>Selected Service</span>
+                <p>{selectedService}</p>
+              </div>
+              <div className='form-element'>
+                <span className='form-label'>Name</span>
+                <p>{name}</p>
+              </div>
+              <div className='form-element'>
+                <span className='form-label'>Phone Number</span>
+                <p>{phoneNumber}</p>
+              </div>
+              <div className='form-element'>
+                <span className='form-label'>Email</span>
+                <p>{email}</p>
+              </div>
+              <div className='form-element'>
+                <span className='form-label'>Message</span>
+                <p>{message}</p>
+              </div>
+              <div className='form-element'>
+                <input type="checkbox" id="agreed" name="agreed" checked={agreed} onChange={() => setAgreed(!agreed)} />
+                <label className="agreed-terms">I agree to the <Link to='/terms-and-condition'>Terms and condition</Link> and <Link to='/privacy-policy'>Privacy Policy</Link>.</label>
+              </div>
+              <div className='btn-wrapper'>
+                <button type='button' className='step-btn btn-back' onClick={previousStep}>Back</button>
+                <button type='submit' className='step-btn btn-continue' disabled={!agreed}>Book Now</button>
+              </div>
             </div>
 
           </form>

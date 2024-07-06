@@ -149,18 +149,22 @@ body {
       a {
         color: $color-primary;
       }
-      &:hover {
-        color: $color-white;
-        background: $color-primary
+			@include media-breakpoint-up($lg) {
+        &:hover {
+          color: $color-white;
+          background: $color-primary
+        }
       }
     }
     &.btn-secondary {
       @include typography(18px, 600, 50px, $web-font, $color-white);
       background: $color-secondary;
       border: 1px solid $color-secondary;
-      &:hover {
-        color: $color-secondary;
-        background: transparent;
+			@include media-breakpoint-up($lg) {
+        &:hover {
+          color: $color-secondary;
+          background: transparent;
+        }
       }
     }
     &.btn-cta-arrow {

@@ -1,8 +1,8 @@
-// React Component Import
 import { useLocation, Outlet } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
+import Loader from '../components/Loader/Loader';
 
 function Layout() {
   const location = useLocation();
@@ -17,17 +17,19 @@ function Layout() {
     }, 800);
     return () => clearTimeout(timeout); // Cleanup
   }, [location.pathname]);
-  return(
+
+  return (
     <>
-    <div className={`page-layout-wrapper ${location.pathname === '/' ? 'home-page' : ''}`}>
-    {fade ? null : (
-      <>
-        <Header />
-        <Outlet />
-        <Footer />
-      </>
-    )}
-    </div>
+      <Loader />
+      <div className={`page-layout-wrapper ${location.pathname === '/' ? 'home-page' : ''}`}>
+        {fade ? null : (
+          <>
+            <Header />
+            <Outlet />
+            <Footer />
+          </>
+        )}
+      </div>
     </>
   );
 }
