@@ -1,6 +1,6 @@
 import './ServiceForm.scss';
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 function ServiceForm() {
   const [selectedService, setSelectedService] = useState('');
@@ -16,6 +16,16 @@ function ServiceForm() {
   const [currentStep, setCurrentStep] = useState(1);
   const [agreed, setAgreed] = useState(false);
 
+  // Use location to get query parameters
+  const location = useLocation();
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const serviceTitle = params.get('service');
+    if (serviceTitle) {
+      setSelectedService(serviceTitle);
+    }
+  }, [location.search]);
+  
   const handleServiceChange = (e) => {
     const value = e.target.value;
     setSelectedService(value);
@@ -176,8 +186,12 @@ function ServiceForm() {
                   <option value="Spiritual Coaching">Spiritual Coaching</option>
                   <option value="Child Birth Analysis">Child Birth Analysis</option>
                   <option value="Love Life Consultation">Love Life Consultation</option>
+                  <option value="Properties-Land-House Consultation">Properties-Land-House Consultation</option>
+                  <option value="Astro Vastu">Astro Vastu</option>
+                  <option value="All Legal Cases">All Legal Cases</option>
                   <option value="Past Karma Analysis">Past Karma Analysis</option>
                   <option value="Annual Prediction">Annual Prediction</option>
+                  <option value="Annual Prediction">Prashna Consultation</option>
                 </select>
                 {serviceError && <div className="error-message">{serviceError}</div>}
               </div>

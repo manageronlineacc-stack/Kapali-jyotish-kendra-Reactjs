@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Network } from '@capacitor/network';
 import './Loader.scss';
 
 function Loader() {
@@ -6,15 +7,18 @@ function Loader() {
   const [isOnline, setIsOnline] = useState(navigator.onLine);
 
   useEffect(() => {
-    const handleOnline = () => {
-      setIsOnline(true);
-      window.location.reload(true); // Reload the page with fresh data on reconnection
+    const handleNetworkStatus = async () => {
+      const status = await Network.getStatus();
+      setIsOnline(status.connected);
+      if (!status.connected) {
+        setIsOnline(false);
+      }
     };
 
-    const handleOffline = () => setIsOnline(false);
+    Network.addListener('networkStatusChange', handleNetworkStatus);
 
-    window.addEventListener('online', handleOnline);
-    window.addEventListener('offline', handleOffline);
+    // Check initial network state
+    handleNetworkStatus();
 
     // Show the loader for at least 3 seconds
     const loaderTimeout = setTimeout(() => {
@@ -27,8 +31,7 @@ function Loader() {
     // Clean up event listeners and timeout on component unmount
     return () => {
       clearTimeout(loaderTimeout);
-      window.removeEventListener('online', handleOnline);
-      window.removeEventListener('offline', handleOffline);
+      Network.removeAllListeners();
     };
   }, [isOnline]);
 
@@ -122,7 +125,7 @@ function Loader() {
             <div className="hexagon__sector"></div>
           </div>
         </div>
-          <p aria-label="Loading">Loading</p>
+          <p aria-label="Loading">Kapali Jyotish Kendra</p>
         </div>
       ) : (
         <div className='network-check'>

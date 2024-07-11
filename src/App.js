@@ -24,9 +24,9 @@ function App() {
           <Route index element={<Home />} />
           <Route path='about-us' element={<AboutUs />} />
           <Route path='services' element={<Services />} />
-          <Route path='service/:slug' element={<ServicePage />} />
+          <Route path='services/:slug' element={<ServicePage />} />
           <Route path='blogs' element={<Blog />} />
-          <Route path='blog/:slug' element={<BlogPage />} />
+          <Route path='blogs/:slug' element={<BlogPage />} />
           <Route path='contact-us' element={<ContactUs />} />
           <Route path='book-appointment' element={<Appointment />} />
           <Route path='terms-and-condition' element={<TermsCondition />} />

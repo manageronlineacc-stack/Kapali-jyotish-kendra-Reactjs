@@ -27,13 +27,13 @@ function Disclaimer() {
 
           <p>Astrological accuracy depends on the accuracy of birth details shared by the client and forecast or prediction or analysis or suggestion should be taken strictly as guidelines only.</p>
 
-          <p>Horoscope Analysis is an expression of astrology as a science that depends on the accuracy of birth details shared. Any such expression/advice/forecast/prediction/consultation is strictly neither disputable in any court of law irrespective of national or international laws nor in any arbitrary council.</p>
+          <p>Horoscope Analysis is an expression of astrology as a science that depends on the accuracy of birth details shared. Any such expression / advice / forecast / prediction / consultation is strictly neither disputable in any court of law irrespective of national or international laws nor in any arbitrary council.</p>
 
           <p>Any client below the age of 18 years should take consent from their parent/guardian to proceed with horoscope analysis.</p>
 
           <p>The Kapali Jyotish Kendra takes no warranty of the accuracy of the astrological interpretation and will not be responsible for any further interpretation made out of it.</p>
 
-          <p>If for any socio/economic/political/religious reasons, astrology or related sciences & study are illegal in your place or jurisdiction or area, then by visiting the website/mobile app/seeking advice or consultations through an astrologer on this website or mobile app you are confirming that it is your free will. The astrologer on this website & mobile app or the owner of the website & mobile app will under no circumstances be held responsible for any repercussions emerging thereafter. The user will be understood to be completely aware of the consequences and will be solely responsible for any actions taken thereafter.</p>
+          <p>If for any socio / economic / political / religious reasons, astrology or related sciences & study are illegal in your place or jurisdiction or area, then by visiting the website / mobile app /seeking advice or consultations through an astrologer on this website or mobile app you are confirming that it is your free will. The astrologer on this website & mobile app or the owner of the website & mobile app will under no circumstances be held responsible for any repercussions emerging thereafter. The user will be understood to be completely aware of the consequences and will be solely responsible for any actions taken thereafter.</p>
         </div>
       </div>
     </>

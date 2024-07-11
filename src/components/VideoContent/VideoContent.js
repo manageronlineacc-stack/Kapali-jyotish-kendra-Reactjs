@@ -19,15 +19,21 @@ function VideoContent() {
     document.body.classList.add('overflow-hidden');
   };
 
+  const stopVideos = () => {
+    document.querySelectorAll('iframe').forEach(v => { v.src = '' });
+    document.querySelectorAll('video').forEach(v => { v.pause() });
+  };
+
   const closePopup = () => {
     setIsPopupOpen(false);
     document.body.classList.remove('overflow-hidden');
+    stopVideos();
   };
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
-  const videoUrl = data.videoIframes[0]?.url || '';
+  const videoUrl = data.videoIframes[0]?.url.replace('watch?v=', 'embed/') || '';
 
   return (
     <>

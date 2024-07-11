@@ -58,6 +58,36 @@ function Header() {
             <li className={`nav-link about ${locationPage.pathname === '/about-us' ? 'active' : ''}`}>
               <Link to='/about-us'>About Us</Link>
             </li>
+            <li className={`nav-link mobile-menu-wrapper`}>
+              <div className={`mobile-menu-icon ${toggle ? 'show-menu' : ''}`} onClick={btnToggle}><i className="fa-solid fa-chevron-up"></i></div>
+              <div className={`mobile-menu-links ${toggle ? 'show-menu' : ''}`}>
+                <div className='mobile-menu-header'>
+                  <div className='site-logo'>
+                    <Link to='/'><img src={siteImage} alt="Gnanaveedu react website logo" /></Link>
+                  </div>
+                  <div className='social-media-div'>
+                    <SocialMedia />
+                  </div>
+                </div>
+                <div className='quick-links'>
+                  <h3>Quick Links</h3>
+                  <ul className='links-wrapper'>
+                    <li>
+                      <Link to='/contact-us'>Contact Us</Link>
+                    </li>
+                    <li>
+                      <Link to='/terms-and-condition'>Terms and condition</Link>
+                    </li>
+                    <li>
+                      <Link to='/disclaimer'>Disclaimer</Link>
+                    </li>
+                    <li>
+                      <Link to='/privacy-policy'>Privacy Policy</Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
             <li className={`nav-link service ${locationPage.pathname === '/services' ? 'active' : ''}`}>
               <Link to='/services'>Services</Link>
             </li>
@@ -68,34 +98,6 @@ function Header() {
               <Link to='/contact-us'>Contact Us</Link>
             </li>
           </ul>
-          <div className={`mobile-menu-icon ${toggle ? 'show-menu' : ''}`} onClick={btnToggle}><i className="fa-solid fa-chevron-up"></i></div>
-          <div className={`mobile-menu-links ${toggle ? 'show-menu' : ''}`}>
-            <div className='mobile-menu-header'>
-              <div className='site-logo'>
-                <Link to='/'><img src={siteImage} alt="Gnanaveedu react website logo" /></Link>
-              </div>
-              <div className='social-media-div'>
-                <SocialMedia />
-              </div>
-            </div>
-            <div className='quick-links'>
-              <h3>Quick Links</h3>
-              <ul className='links-wrapper'>
-                <li>
-                  <Link to='/contact-us'>Contact Us</Link>
-                </li>
-                <li>
-                  <Link to='/terms-and-condition'>Terms and condition</Link>
-                </li>
-                <li>
-                  <Link to='/disclaimer'>Disclaimer</Link>
-                </li>
-                <li>
-                  <Link to='/privacy-policy'>Privacy Policy</Link>
-                </li>
-              </ul>
-            </div>
-          </div>
         </div>
       </div>
     </header>

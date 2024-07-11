@@ -97,7 +97,7 @@ export const SERVICES_CONT = [
     <p>This service analyses any major disease or health issue as per your birth chart and the tenure of the health problem including remedies.</p>
     <p>Consultation Time : 45 mins.</p>
     <ul>
-      <li>CThis can be done via phone or video call.</li>
+      <li>This can be done via phone or video call.</li>
     </ul>
     <p>Fees – Rs. 2000 per horoscope</p>
     </>,
@@ -157,7 +157,7 @@ export const SERVICES_CONT = [
   {
     id: 10,
     serviceimg: serviceIcon11,
-    serviceTitle: 'Properties/Land/House Consultation',
+    serviceTitle: 'Properties-Land-House Consultation',
     serviceDescription: <>
     <p>Property, whether buying or selling, is an important decision. Property transactions involve huge investments, sometimes, the buyer's lifetime savings! Thus, naturally, one should take this decision with utmost care, considering all pros and cons. If you're thinking about buying or selling a property, facing a property dispute, dealing with a loan on the property, or having questions about ancestral or parental property. This service will help you.</p>
     <ul>

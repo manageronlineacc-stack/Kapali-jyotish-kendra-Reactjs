@@ -1,8 +1,9 @@
+import React, { useState, useEffect } from 'react';
 import { useLocation, Outlet } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import Loader from '../components/Loader/Loader';
+import { App as CapacitorApp } from '@capacitor/app';
 
 function Layout() {
   const location = useLocation();
@@ -16,6 +17,27 @@ function Layout() {
       setFade(false);
     }, 800);
     return () => clearTimeout(timeout); // Cleanup
+  }, [location.pathname]);
+
+  useEffect(() => {
+    if (CapacitorApp) {
+      const handleBackButton = ({ canGoBack }) => {
+        if (!canGoBack) {
+          CapacitorApp.exitApp(); // Exit app if cannot go back
+        } else {
+          window.history.back(); // Navigate back in history
+        }
+      };
+
+      // Add listener for Capacitor back button
+      const backButtonListener = CapacitorApp.addListener('backButton', handleBackButton);
+
+      return () => {
+        backButtonListener.remove(); // Cleanup listener on component unmount
+      };
+    } else {
+      console.warn('CapacitorApp is not available in this environment.');
+    }
   }, [location.pathname]);
 
   return (

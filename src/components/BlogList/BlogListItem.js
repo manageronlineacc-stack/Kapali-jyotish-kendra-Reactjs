@@ -5,7 +5,7 @@ function BlogListItem({blogImg, blogTitle, blogShortDescrp, blogDate, blogId}) {
   const navigate = useNavigate();
   const handleClick = () => {
     const slug = slugify(blogTitle);
-    navigate(`/blog/${slug}`);
+    navigate(`/blogs/${slug}`);
   };
   return (
     <div className='blog-item-inner'>

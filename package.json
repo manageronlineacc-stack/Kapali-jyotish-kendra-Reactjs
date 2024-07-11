@@ -5,9 +5,15 @@
   "dependencies": {
     "@apollo/client": "^3.10.4",
     "@capacitor/android": "^6.1.0",
-    "@capacitor/cli": "^6.1.0",
-    "@capacitor/core": "^6.1.0",
+    "@capacitor/app": "6.0.0",
+    "@capacitor/core": "6.1.0",
+    "@capacitor/haptics": "6.0.0",
     "@capacitor/ios": "^6.1.0",
+    "@capacitor/keyboard": "6.0.1",
+    "@capacitor/network": "^6.0.1",
+    "@capacitor/status-bar": "6.0.0",
+    "@ionic/core": "^8.2.5",
+    "@ionic/react": "^8.2.5",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -47,6 +53,7 @@
     ]
   },
   "devDependencies": {
+    "@capacitor/cli": "6.1.0",
     "react-router-dom": "^6.23.0"
   }
 }

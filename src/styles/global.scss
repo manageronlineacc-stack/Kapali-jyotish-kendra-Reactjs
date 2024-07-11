@@ -40,6 +40,7 @@
 
 * {
 	box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 html { scroll-behavior: smooth; }
@@ -202,6 +203,7 @@ body {
   }
   .cta-wrapper {
     display: flex;
+    flex-wrap: wrap;
     gap: 15px;
   }
   .policy-wrapper {
