@@ -8,9 +8,9 @@ const config: CapacitorConfig = {
   webDir: 'build',
   plugins: {
     SplashScreen: {
-      launchShowDuration: 3000,
+      launchShowDuration: 0,
+      launchAutoHide: true,
       androidScaleType: 'CENTER_CROP',
-      iosSplashImageName: 'splash',
       showSpinner: false,
       backgroundColor: '#ffffff'
     },

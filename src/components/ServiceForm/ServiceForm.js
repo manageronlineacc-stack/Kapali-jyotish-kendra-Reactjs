@@ -191,7 +191,7 @@ function ServiceForm() {
                   <option value="All Legal Cases">All Legal Cases</option>
                   <option value="Past Karma Analysis">Past Karma Analysis</option>
                   <option value="Annual Prediction">Annual Prediction</option>
-                  <option value="Annual Prediction">Prashna Consultation</option>
+                  <option value="Prashna Consultation">Prashna Consultation</option>
                 </select>
                 {serviceError && <div className="error-message">{serviceError}</div>}
               </div>

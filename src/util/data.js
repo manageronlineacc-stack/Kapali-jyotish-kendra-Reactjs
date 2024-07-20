@@ -211,7 +211,7 @@ export const SERVICES_CONT = [
   {
     id: 14,
     serviceimg: serviceIcon10,
-    serviceTitle: 'Annual Predicition',
+    serviceTitle: 'Annual Prediction',
     serviceDescription: <>
     <p>This is a general analysis of your birth chart for the next 12 months based on the current planetary transit.</p>
     <p>Consultation Time : 45 mins.</p>
