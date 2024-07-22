@@ -6,10 +6,11 @@ import { slugify } from '../../util/slugify';
 function ServiceDetail() {
   const { slug } = useParams();
   const service = SERVICES_CONT.find((service) => slugify(service.serviceTitle) === slug);
+
   if (!service) {
     return (
       <div className='service-detail-wrapper'>
-        <div className='conatiner'>Service not found</div>
+        <div className='container'>Service not found</div>
       </div>
     );
   }
@@ -26,7 +27,7 @@ function ServiceDetail() {
         <div className='detail-description'>
           {service.serviceDescription}
         </div>
-        <Link to="/book-appointment" className='book-appointment-cta btn btn-primary'>
+        <Link to={`/book-appointment?service=${encodeURIComponent(service.serviceTitle)}`} className='book-appointment-cta btn btn-primary'>
           Book Now
         </Link>
       </div>

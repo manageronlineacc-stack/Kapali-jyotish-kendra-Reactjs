@@ -10,7 +10,7 @@
     z-index: 9999;
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(2px);
-    border-radius: 20px 20px 0 0;
+    border-radius: 0;
     box-shadow: 0 26px 58px 0 rgba(0, 0, 0, 0.22), 0 0 15px 0 rgba(0, 0, 0, 0.2);
     .container {
       padding: 0 !important;
@@ -113,18 +113,38 @@
             transform: rotate(180deg);
           }
         }
+        &:not(.show-menu) {
+          i {
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-name: bounce-icon;
+            animation-timing-function: ease-in-out;
+          }
+          @keyframes bounce-icon {
+            0%   { transform: translateY(0); }
+            10%  { transform: translateY(0); }
+            30%  { transform: translateY(-3px); }
+            50%  { transform: translateY(3px); }
+            57%  { transform: translateY(-3px); }
+            64%  { transform: translateY(0); }
+            100% { transform: translateY(0); }
+          }
+        }
       }
       .show-menu.mobile-menu-links {
         height: 70vh;
         transform: translateY(0);
+      }
+      .mobile-menu-links {
         .mobile-menu-header {
-          display: flex;
-          justify-content: space-between;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
           .site-logo {
             max-width: 150px;
           }
           .social-media-wrapper {
             gap: 10px;
+            justify-content: flex-end;
           }
         }
         .quick-links {
@@ -150,9 +170,10 @@
       gap: 20px;
       @include media-breakpoint-down($lg) {
         gap: 10px;
-        margin: 0 10px;
+        margin: 0;
+        justify-content: space-around;
       }
-      .nav-link {
+      .nav-link:not(.mobile-menu-wrapper) {
         position: relative;
         @include typography(16px, 600, 14px, $web-font-medium, $color-grey);
         cursor: pointer;
@@ -251,6 +272,17 @@
               width: 80%;
             }
           }
+        }
+      }
+      .mobile-menu-wrapper {
+        display: none;
+        @include media-breakpoint-down($lg) {
+          display: block;
+          width: 125px;
+          z-index: 9;
+        }
+        @include media-breakpoint-down($sm) {
+          width: 65px;
         }
       }
     }

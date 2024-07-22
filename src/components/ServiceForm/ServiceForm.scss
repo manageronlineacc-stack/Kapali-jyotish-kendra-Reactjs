@@ -77,7 +77,8 @@
         justify-content: space-between;
         width: 100%;
         .step-btn {
-          width: 120px;
+          display: block;
+          width: 150px;
           text-align: center;
           padding: 12px 15px;
           border-radius: 8px;
@@ -137,12 +138,53 @@
         border: none;
         border-radius: 8px;
         box-shadow: 0px 0px 8px rgba($color: $color-black, $alpha: 0.2);
+        background-color: $color-white;
+        appearance: none;
         display: block;
         &.form-message {
           resize: none;
           min-height: 250px;
         }
       }
+      input[type="date"], input[type="time"] {
+        position: relative;
+        padding: 10px;
+      }
+      
+      input[type="date"]::-webkit-calendar-picker-indicator, input[type="time"]::-webkit-calendar-picker-indicator {
+        color: transparent;
+        background: none;
+        z-index: 1;
+      }
+      
+      input[type="date"]:before {
+        color: transparent;
+        background: none;
+        display: block;
+        font-family: 'FontAwesome';
+        content: '\f073';
+        width: 15px;
+        height: 20px;
+        position: absolute;
+        top: 12px;
+        right: 10px;
+        color: $color-black;
+      }
+
+      input[type="time"]:before {
+        color: transparent;
+        background: none;
+        display: block;
+        font-family: 'FontAwesome';
+        content: '\f017';
+        width: 15px;
+        height: 20px;
+        position: absolute;
+        top: 12px;
+        right: 10px;
+        color: $color-black;
+      }
+
       select {
         appearance: none;
         position: relative;

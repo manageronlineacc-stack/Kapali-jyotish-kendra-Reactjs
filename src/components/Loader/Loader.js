@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Network } from '@capacitor/network';
 import './Loader.scss';
 
 function Loader() {
@@ -6,11 +7,18 @@ function Loader() {
   const [isOnline, setIsOnline] = useState(navigator.onLine);
 
   useEffect(() => {
-    const handleOnline = () => setIsOnline(true);
-    const handleOffline = () => setIsOnline(false);
+    const handleNetworkStatus = async () => {
+      const status = await Network.getStatus();
+      setIsOnline(status.connected);
+      if (!status.connected) {
+        setIsOnline(false);
+      }
+    };
 
-    window.addEventListener('online', handleOnline);
-    window.addEventListener('offline', handleOffline);
+    Network.addListener('networkStatusChange', handleNetworkStatus);
+
+    // Check initial network state
+    handleNetworkStatus();
 
     // Show the loader for at least 3 seconds
     const loaderTimeout = setTimeout(() => {
@@ -20,15 +28,15 @@ function Loader() {
       }
     }, 3000);
 
+    // Clean up event listeners and timeout on component unmount
     return () => {
-      clearTimeout(loaderTimeout); // Cleanup timeout on component unmount
-      window.removeEventListener('online', handleOnline);
-      window.removeEventListener('offline', handleOffline);
+      clearTimeout(loaderTimeout);
+      Network.removeAllListeners();
     };
   }, [isOnline]);
 
   const retryConnection = () => {
-    window.location.reload(); // Force a fresh reload
+    window.location.reload(true); // Force a fresh reload
   };
 
   return (
@@ -117,7 +125,7 @@ function Loader() {
             <div className="hexagon__sector"></div>
           </div>
         </div>
-          <p aria-label="Loading">Loading</p>
+          <p aria-label="Loading">Kapali Jyotish Kendra</p>
         </div>
       ) : (
         <div className='network-check'>

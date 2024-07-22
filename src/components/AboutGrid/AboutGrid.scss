@@ -11,6 +11,9 @@
     align-items: center;
     @include media-breakpoint-down($lg) {
       grid-template-columns: 1fr;
+      .image-wrapper {
+        text-align: center;
+      }
     }
   }
   .image-wrapper img {

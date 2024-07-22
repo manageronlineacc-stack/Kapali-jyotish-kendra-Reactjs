@@ -56,7 +56,7 @@ function BlogList() {
   if (error) return <p>Error :(</p>;
 
   const handleServiceClick = (slug) => {
-    navigate(`/blog/${slug}`);
+    navigate(`/blogs/${slug}`);
   };
 
   return (
@@ -80,7 +80,7 @@ function BlogList() {
               <h5>Instagram Feed</h5>
               <div className='content'>
                 <iframe
-                  src="https://www.instagram.com/meta/embed"
+                  src="https://www.instagram.com/kapalijyotishkendra/embed"
                   title='instagram'
                   width="100%"
                   height="385px"

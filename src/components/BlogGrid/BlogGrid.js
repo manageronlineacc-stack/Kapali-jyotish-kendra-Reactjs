@@ -55,7 +55,7 @@ function BlogGrid() {
   if (error) return <p>Error :(</p>;
 
   const handleServiceClick = (slug) => {
-    navigate(`/blog/${slug}`);
+    navigate(`/blogs/${slug}`);
   };
   return (
     <div className='blog-grid-wrapper'>

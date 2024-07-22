@@ -33,7 +33,7 @@ function SearchwithServices() {
   const handleServiceClick = (service) => {
     // Navigate to the ServiceDetail component using slugified title
     const slugifiedTitle = slugify(service.serviceTitle);
-    navigate(`/service/${slugifiedTitle}`);
+    navigate(`/services/${slugifiedTitle}`);
   };
 
   return (
