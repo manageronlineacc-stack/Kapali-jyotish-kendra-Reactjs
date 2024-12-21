@@ -1,3 +1,4 @@
+import React from 'react';
 import AboutGrid from "../components/AboutGrid/AboutGrid";
 import BlogGrid from "../components/BlogGrid/BlogGrid";
 import HeroBanner from "../components/HeroBanner/HeroBanner";
