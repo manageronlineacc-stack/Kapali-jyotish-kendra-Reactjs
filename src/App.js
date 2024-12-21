@@ -1,6 +1,8 @@
 // import global styling
 import './styles/global.scss';
 
+import './util/disableCopyRightClick';
+
 // import react components
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './Pages/Layout';
